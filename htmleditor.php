@@ -1,0 +1,58 @@
+<?php
+require ('core.inc.php');
+if (loggedin()) {
+  include ('headerlogin.php');
+}else {
+  include ('header.php');
+}
+$handle = fopen('run.html', 'w');
+
+if(isset($_POST['code'])) {
+  $code = $_POST['code'];
+
+  if(fwrite($handle, $code)) {
+    header('Location: run.html');
+  }
+}
+ ?>
+ <title>HTML environment | The Hub </title>
+ <script type="text/javascript">
+ function loadCode () {
+   if (window.XMLHttpRequest) {
+     xmlhttp = new XMLHttpRequest();
+   }else {
+     xmlhttp = new ActiveObject('Microsoft.XMLHTTP');
+   }
+   xmlhttp.onreadystatechange = function () {
+     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+       document.getElementById('code1').innerHTML = xmlhttp.responseText;
+     }
+   }
+   para = 'code='+document.getElementById('code').value;
+   xmlhttp.open('POST', 'htmleditor.php', true)
+   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+   xmlhttp.send (para);
+ }
+ </script>
+ <div class="row">
+ <div class="text-xs-center col-md-7" style="margin-top: 5px;">
+   <div class="text-center" id="intro-section">
+     <img src="img/thehub.ico.jpg" alt="website logo" width="60" height="60">
+     <div class="col-md-6 container">
+     <h2>Welcome to our <strong class="animated fadeIn" style="color: indigo; font-family: monospace;">HTML environment!</strong></h2>
+     <p class="animated fadeIn">Test your HTML5 code in real time using this HTML environment. Enjoy!</p>
+ <hr>
+ <button class="btn-outline-success btn-block btn-rounded btn" onclick="loadCode()" name="submit">run code</button><br>
+  <div class="input-group md-form">
+ <textarea class="lg-textarea" id="code" name="code" placeholder="Your code here... Stretch the area if you prefer" style="height: 350px; background-color: black; color: white; border-radius: 20px;" required></textarea></div>
+</div>
+</div>
+</div>
+<div class="text-xs-center col-md-5 container">
+<h2 style="margin-top: 5px; font-family: Georgia;">Results</h2><hr>
+<div id="code1"></div>
+</div>
+</div>
+<?php
+ include 'footer.php';
+ ?>

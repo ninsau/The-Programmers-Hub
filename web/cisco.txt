@@ -1,0 +1,10 @@
+en
+conf t
+username BB2
+ip domain-name cisco
+crypto key generate rsa
+ip ssh version 2
+1024
+line vty 04
+transport input ssh
+do write

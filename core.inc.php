@@ -4,6 +4,7 @@ ob_start();
 session_start();
 //name of currently open file
  $current_file = $_SERVER['SCRIPT_NAME'];
+ @$pre_loc = $_SERVER['HTTP_REFERER'];
  //function to create session after successful login
 function loggedIn () {
   if (isset($_SESSION['email'])&&!empty($_SESSION['email'])) {
@@ -12,6 +13,7 @@ function loggedIn () {
     return false;
   }
 }
+
 
 //error handler function
 /*function customError($errno, $errstr) {

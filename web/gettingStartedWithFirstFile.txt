@@ -1,0 +1,21 @@
+/**
+*PHP programming tutorials - Designed by Cassidy Blay for theprogrammershub.net
+*Getting started with your first PHP file.
+**/
+
+
+PHP files are saved with the extention .php 
+**
+Launch your code editor and click on save as, or Ctrl+S and then save your file as "index.php" (without the quotes)
+And there you go! You have your first PHP file.
+
+***htdocs
+htdocs is the folder in which you keep all you PHP files. To locate the htdocs folder, visit the location of the XAMPP installation and open. Browse through
+the files and folders until you see a folder named "htdocs".(The folder will probably be located in yourDrive(C://)>>XAMPP>>htdocs ). Create a
+new folder in your htdocs and save it as "hub". Now move or copy and paste the index.php file that we created earlier into the hub folder in htdocs.
+This is where we are going to save all the files for our tutorial.
+**
+Now let's test to see if everything is working. Launch your web browser and type "localhost/hub". If the page loads(the page should be blank since we 
+haven't written anything in our file) you did the right thing. If you receive an error, start the process again.
+
+***NB: I skipped things such as the phpinfo function and the php.ini configuration file. We will mention them along the course of the tutorial.
